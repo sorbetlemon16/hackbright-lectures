@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+<h1>Melons</h1>
+
+<!-- Price Search -->
+<form action="/search" method="GET">
+
+    Min <input type="text" 
+         name="min" 
+         value="{{ request.args.get("min", "") }}"
+         required>
+
+    Max <input type="text"
+         name="max" 
+         value="{{ request.args.get("max", "") }}"
+         required>
+
+    <input type="submit">
+</form>
+<!-- End Price Search -->
+
+<!-- Melon List -->
+{% if melons %}
+    <table>
+        <tr>
+            <th>Id</th>
+            <th>Type</th>
+            <th>Melon Name</th>
+            <th>Price</th>
+        </tr>
+        {% for melon in melons %}
+            <tr>
+                <td>{{ melon[0] }}</td>
+                <td>{{ melon[1] }}</td>
+                <td>{{ melon[2] }}</td>
+                <td>{{ melon[3] }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endif %}
+<!-- End Melon List -->
+
+<form action="/melon-add" method="POST">
+    Name <input type="text" name="melon-name">
+    Type <input type="text" name="melon-type">
+    Price <input type="text" name="melon-price">
+    <input type="submit" value="Add">
+</form>
+
+{% endblock %}

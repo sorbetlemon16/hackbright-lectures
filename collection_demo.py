@@ -1,0 +1,1 @@
+inst = ('Instance', 'gray', 2)
