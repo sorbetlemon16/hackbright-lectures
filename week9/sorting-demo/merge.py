@@ -14,6 +14,7 @@ def merge_sort(lst):
 
     mid = int(len(lst) / 2)  # index at half the list
     lst1 = merge_sort(lst[:mid])  # divide list in half
+    print("list 1 done")
     lst2 = merge_sort(lst[mid:])  # assign other half
 
     return make_merge(lst1, lst2)
