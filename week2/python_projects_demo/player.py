@@ -4,7 +4,6 @@ def greet_player():
     player = input('Who are you? ')
     print(f"Hello, {player}")
 
-
 greet_player()
 
 
