@@ -21,30 +21,30 @@ def say_hello():
     return render_template("hello.html")
 
 
-# @app.route('/greet')
-# def offer_greeting():
-#     """Give player compliments."""
-
-#     player = request.args.get("person")
-#     nice_thing = choice(COMPLIMENTS)
-#     return render_template("compliment.html", name=player, compliment=nice_thing)
-
-
 @app.route('/greet')
-def greet_person():
+def offer_greeting():
     """Give player compliments."""
 
     player = request.args.get("person")
-    wants_compliments = request.args.get("wants_compliments")
+    nice_thing = choice(COMPLIMENTS)
+    return render_template("compliment.html", 
+                            name=player, 
+                            compliment=nice_thing)
 
-    # COMPLIMENTS = ["smart", "clever", "tenacious", "awesome", "Pythonic"]
 
-    if wants_compliments:
-        nice_things = sample(COMPLIMENTS, 3)
-    else:
-        nice_things = []
-    return render_template("compliments.html",
-                           compliments=nice_things, name=player)
+# @app.route('/greet')
+# def greet_person():
+#     """Give player compliments."""
+
+#     player = request.args.get("person")
+#     wants_compliments = request.args.get("wants_compliments")
+
+#     if wants_compliments:
+#         nice_things = sample(COMPLIMENTS, 3)
+#     else:
+#         nice_things = []
+#     return render_template("compliments.html",
+#                            compliments=nice_things, name=player)
 
 
 @app.route('/base')

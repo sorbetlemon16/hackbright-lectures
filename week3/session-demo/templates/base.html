@@ -24,9 +24,9 @@
 
 {# Show flashed messages, if any #}
 {% if messages %}
-{% for message in messages %}
-<li>{{ message }}</li>
-{% endfor %}{% endif %}
+  {% for message in messages %}
+    <li>{{ message }}</li>
+  {% endfor %}{% endif %}
 {% endwith %}
 
 {# Here's where page-specific content goes #}
