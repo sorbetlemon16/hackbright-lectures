@@ -20,9 +20,9 @@ def say_hello():
 
     return render_template("hello.html")
 
-
-@app.route('/greet')
-def offer_greeting():
+# Greet demo #1
+# @app.route('/greet')
+def greet_person():
     """Give player compliments."""
 
     player = request.args.get("person")
@@ -31,7 +31,18 @@ def offer_greeting():
                             name=player, 
                             compliment=nice_thing)
 
+# Greet demo #2
+# @app.route('/greet')
+# def greet_person():
+#     """Give player compliments."""
 
+#     player = request.args.get("person")
+#     nice_things = sample(COMPLIMENTS, 3)
+#     return render_template("compliments.html",
+#                            compliments=nice_things, 
+#                            name=player)
+
+# Greet demo #3
 # @app.route('/greet')
 # def greet_person():
 #     """Give player compliments."""
@@ -44,7 +55,8 @@ def offer_greeting():
 #     else:
 #         nice_things = []
 #     return render_template("compliments.html",
-#                            compliments=nice_things, name=player)
+#                            compliments=nice_things, 
+#                            name=player)
 
 
 @app.route('/base')
