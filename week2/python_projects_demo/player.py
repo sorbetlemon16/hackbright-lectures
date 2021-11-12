@@ -6,7 +6,6 @@ def greet_player():
 
 greet_player()
 
-
 # Uncomment this section for demo
 
 # if __name__ == '__main__':
