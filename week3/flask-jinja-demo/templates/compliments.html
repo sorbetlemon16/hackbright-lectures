@@ -5,11 +5,13 @@
 </head>
 <body>
   Hi {{ name }}!
-  You're so:
-  <ul>
-    {% for compliment in compliments %}
-      <li>{{ compliment }}</li>
-    {% endfor %}
-  </ul>
+  {% if compliments %}
+    You're so:
+    <ul>
+      {% for compliment in compliments %}
+        <li>{{ compliment }}</li>
+      {% endfor %}
+    </ul>
+  {% endif %}
 </body>
 </html>

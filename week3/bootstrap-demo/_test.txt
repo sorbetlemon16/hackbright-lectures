@@ -1,0 +1,44 @@
+Open columns.html and store all the HTML in testdata.
+
+    >>> TESTDATA_FILENAME = 'columns.html'
+    >>> html = open(TESTDATA_FILENAME).read()
+
+Check to see if string is in file.
+
+    >>> assert '<div class="col-6">' in html
+
+Open forms.html and confirm content.
+
+    >>> TESTDATA_FILENAME = 'forms.html'
+    >>> html = open(TESTDATA_FILENAME).read()
+
+    >>> assert '<div class="form-group">' in html
+
+
+Open nav.html and confirm content.
+
+    >>> TESTDATA_FILENAME = 'nav.html'
+    >>> html = open(TESTDATA_FILENAME).read()
+
+    >>> assert '<nav class="navbar navbar-expand-lg navbar-light bg-light">' in html
+
+Open offset-puppy.html and confirm content.
+
+    >>> TESTDATA_FILENAME = 'offset-puppy.html'
+    >>> html = open(TESTDATA_FILENAME).read()
+
+    >>> assert '<div class="col-4 offset-8">' in html
+
+Open ordering.html and confirm content.
+
+    >>> TESTDATA_FILENAME = 'ordering.html'
+    >>> html = open(TESTDATA_FILENAME).read()
+
+    >>> assert '<div class="col-xs-12 col-md-3 order-md-12" style="border: solid black; background-color: #99ccff">\n      <h1>Section 1</h1>\n    </div>\n\n    <div class="col-xs-12 col-md-9 order-md-1" style="border: solid black; background-color: #ff9966">\n' in html
+
+Open tables.html and confirm content.
+
+    >>> TESTDATA_FILENAME = 'tables.html'
+    >>> html = open(TESTDATA_FILENAME).read()
+
+    >>> assert '<table class="table table-hover table-striped">' in html

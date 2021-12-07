@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Bootstrap Layout Example</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x"
+      crossorigin="anonymous"
+    />
+
+    <!-- Our custom styles -->
+    <style>
+      .row > div > div {
+        text-align: center;
+        padding-top: 4em;
+        padding-bottom: 4em;
+        font-size: 200%;
+        font-weight: bold;
+        border: solid 1px black;
+        background-color: lightblue;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="page-header">
+        <h1>Columns Example</h1>
+
+        <p class="lead">Examples of columns in Bootstrap.</p>
+      </div>
+
+      <h2>Two always-equally wide columns</h2>
+
+      <div class="row">
+        <div class="col-6">
+          <div>Left</div>
+        </div>
+
+        <div class="col-6">
+          <div>Right</div>
+        </div>
+      </div>
+
+      <h2>Main/Sidebar</h2>
+      <p>On smaller devices, these are stacked -- but on larger ones, they're side-by-side.</p>
+
+      <div class="row">
+        <div class="col-12 col-md-6 col-lg-3">
+          <div>Sidebar/Navbar</div>
+        </div>
+
+        <div class="col-12 col-md-6 col-lg-9">
+          <div>Main</div>
+        </div>
+      </div>
+
+      <h2>Offset Column</h2>
+      <p>Here we're using the offset classes to center the column.</p>
+
+      <div class="row">
+        <div class="col-12 col-md-6 offset-md-3 col-lg-6 offset-lg-3">
+          <div>Centered column</div>
+        </div>
+      </div>
+
+      <h2>Main/Sidebar Push/Pull</h2>
+      <p>
+        Same idea as before, but now we want the sidebar to the right of the main area on larger
+        devices, rather than to the left -- but still above it on cell phones.
+      </p>
+
+      <div class="row">
+        <div class="col-12 col-md-6 order-md-2 col-lg-3 order-lg-2">
+          <div>Sidebar/Navbar</div>
+        </div>
+
+        <div class="col-12 col-md-6 order-md-1 col-lg-9 order-lg-1">
+          <div>Main</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- We don't actually use any JS-based components here, but we'll include the JS as an example -->
+    <!-- Bootstrap JavaScript Bundle -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

@@ -1,7 +1,6 @@
 from flask import Flask, request, render_template
 from random import choice, sample
 
-
 COMPLIMENTS = ["smart", "clever", "tenacious", "awesome", "Pythonic"]
 
 app = Flask(__name__)
@@ -22,14 +21,14 @@ def say_hello():
 
 # Greet demo #1
 # @app.route('/greet')
-def greet_person():
-    """Give player compliments."""
+# def greet_person():
+#     """Give player compliments."""
 
-    player = request.args.get("person")
-    nice_thing = choice(COMPLIMENTS)
-    return render_template("compliment.html", 
-                            name=player, 
-                            compliment=nice_thing)
+#     player = request.args.get("person")
+#     nice_thing = choice(COMPLIMENTS)
+#     return render_template("compliment.html", 
+#                             name=player, 
+#                             compliment=nice_thing)
 
 # Greet demo #2
 # @app.route('/greet')
@@ -43,20 +42,20 @@ def greet_person():
 #                            name=player)
 
 # Greet demo #3
-# @app.route('/greet')
-# def greet_person():
-#     """Give player compliments."""
+@app.route('/greet')
+def greet_person():
+    """Give player compliments."""
 
-#     player = request.args.get("person")
-#     wants_compliments = request.args.get("wants_compliments")
+    player = request.args.get("person")
+    wants_compliments = request.args.get("wants_compliments")
 
-#     if wants_compliments:
-#         nice_things = sample(COMPLIMENTS, 3)
-#     else:
-#         nice_things = []
-#     return render_template("compliments.html",
-#                            compliments=nice_things, 
-#                            name=player)
+    if wants_compliments:
+        nice_things = sample(COMPLIMENTS, 3)
+    else:
+        nice_things = []
+    return render_template("compliments.html",
+                           compliments=nice_things, 
+                           name=player)
 
 
 @app.route('/base')

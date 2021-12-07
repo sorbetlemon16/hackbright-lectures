@@ -25,8 +25,9 @@ def process_order():
     free shipping.
     """
 
-    melon_type = request.form.melon_type
-    qty = request.form['quantity']
+    melon_type = request.form['melon_type']
+
+    qty = int(request.form['qty'])
 
     total = qty * 2
 
@@ -49,7 +50,7 @@ if __name__ == '__main__':
     # We need to set up app.debug to True before we use the toolbar
     app.debug = True
 
-    # DebugToolbarExtension(app)
+    DebugToolbarExtension(app)
 
     # Flask's debugger only works when threaded=False. It's a config
     # value that *should* default to False but on some environments, it

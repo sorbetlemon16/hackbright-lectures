@@ -1,0 +1,58 @@
+Test demo model file
+
+	>>> import os
+	>>> os.system("dropdb --if-exists testemployees")
+	0
+	>>> os.system("createdb testemployees")
+	0
+	>>> from model import *
+	>>> from flask import Flask
+	>>> app = Flask(__name__)
+
+	>>> app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql:///testemployees'
+    >>> app.config['SQLALCHEMY_ECHO'] = False
+    >>> app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
+    >>> db.app = app
+    >>> db.init_app(app)
+
+Create tables and example data
+    >>> db.create_all()
+    >>> example_data()
+
+Test phone directory join functions
+    >>> phone_dir_nav() # doctest: +ELLIPSIS
+    <BLANKLINE>
+    (getting departments)
+    <BLANKLINE>
+    <BLANKLINE>
+    Leonard  Legal       555-2222
+    ...
+    <BLANKLINE>
+    
+    >>> phone_dir_nav_eager() # doctest: +ELLIPSIS
+    Leonard ...
+    Nadine   -           -
+
+    >>> phone_dir_join() # doctest: +ELLIPSIS
+    Leonard  Legal       555-2222
+    ...
+    Maggie   Marketing   555-9999
+
+    >>> phone_dir_join_class() # doctest: +ELLIPSIS
+    Leonard  Legal       555-2222
+    ...
+    Maggie   Marketing   555-9999
+
+    >>> phone_dir_join_outerjoin() # doctest: +ELLIPSIS
+    Leonard  Legal       555-2222
+    Liz      Legal       555-2222
+    Maggie   Marketing   555-9999
+    Nadine   -           -
+
+Clean up
+    >>> db.session.close()
+    >>> db.engine.dispose()
+    >>> os.system('dropdb testemployees')
+    0
+
+

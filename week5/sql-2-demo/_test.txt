@@ -1,0 +1,37 @@
+Create test database
+    >>> import os
+    >>> os.system("dropdb --if-exists testdb")
+    0
+    >>> os.system("createdb testdb")
+    0
+
+To test our SQL file, get access using sqlalchemy
+    >>> from flask import Flask
+    >>> from flask_sqlalchemy import SQLAlchemy
+    >>> app = Flask(__name__)
+    >>> db = SQLAlchemy()
+
+Connect to database
+    >>> app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql:///testdb'
+    >>> app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+    >>> db.app = app
+    >>> db.init_app(app)
+
+    >>> os.system("psql testdb < emp.sql")
+    0
+
+Check employee tables
+    >>> db_cursor = db.session.execute("SELECT * FROM departments;", {})
+    >>> assert len(db_cursor.fetchone()) == 3
+    >>> db_cursor = db.session.execute("SELECT * FROM employees;", {})
+    >>> assert len(db_cursor.fetchone()) == 7
+    >>> db_cursor = db.session.execute("SELECT dept_code FROM departments;", {})
+    >>> depts = db_cursor.fetchall()
+    >>> assert len(depts) == 3
+    >>> assert depts[0] == (u'mktg',)
+
+Clean up
+    >>> db.session.close()
+    >>> db.engine.dispose()
+    >>> os.system("dropdb --if-exists testdb")
+    0

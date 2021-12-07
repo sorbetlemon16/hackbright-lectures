@@ -1,7 +1,7 @@
 import random
 
 def get_random_item(items):
-  return random.choice()
+  return random.choice(items)
 
 def get_random_fruit():
   fruit_list = ['apple', 'berry', 'cherry']
